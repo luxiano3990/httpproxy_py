@@ -31,7 +31,14 @@ This tasks implements the following requirements:
 
 The docker image is just only one application server script : aiohttp_server.py which can also be run as standalone in a Python 3 environmant for testing.
 
-The client is another Python script :  request_client_post.py which sends a http POST to the server running on port 8080. The post is sending JWT headers and other JSON information. The server collect the clinet request and appends the JWT token with the new JWT claims JTI and IAT. Then it respond back to the clinet which save the new JWT token with x-my-jwt token recieved.
+The client is another Python script :  request_client_post.py which sends a http POST to the server running on port 8080. 
+
+The client post is sending JWT headers and other JSON information. The server collect the client request and appends the JWT token with the new JWT claims JTI and IAT. Then it respond back to the clinet which save the new JWT token with x-my-jwt token recieved.
+
+By launching the docker image, the server script aiohttp_server.py will start to work as HTTP proxy server binded on localhost on port 8080. By running the client script request_client_post.py on another terminal CLI out of Docker container, a HTTP POST will be sent to http://localhost:8080/protected . An "Authorization : Bearer" header will be sent to the server plus a JSON payload. From the terminal output of the clinet script is possible to see the request sent and also the response from the server which is appending a new JWT token with JTI and IAT claims. The JWT token is added in to server response header as "x-my-jwt" field. 
+
+By running the server script as a standalone application out of docker container, the terinal window will show more relevant information for testing and debugging purpose. (NOTE. A better testing environment can be setup by running client and server scripts from 2 diffrent terminal interface out of Docker container, in order to see the output from the terminal windows).
+
 
 
 
