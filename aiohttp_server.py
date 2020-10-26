@@ -8,11 +8,13 @@ from aiohttp_jwt import JWTMiddleware
 
 from datetime import date
 
-
+from datetime import datetime  
 
 
 # Assign new JWT claims
-Iat=date.today().strftime("%d/%m/%Y")
+current_date=datetime.now().time()                                                                                    
+Iat=str(current_date)    
+
 Jti='MyID-001'
 
 # Define encoding private secret
