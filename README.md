@@ -2,9 +2,11 @@
 
 This is a Python programming task to build a HTTP proxy that takes a POST request from a client and appends a JSON Web Token (JWT) with following claims :
 
-iat - Timestamp of the request as specified by the specification
-jti- A cryptographic nonce that should be unique
-payload - A json payload of the structure: {"user": "username", "date": "todays date"}
+1) iat - Timestamp of the request as specified by the specification
+
+2) jti- A cryptographic nonce that should be unique
+
+3) payload - A json payload of the structure: {"user": "username", "date": "todays date"}
 
 The JWT os signed with the following hex string secret using the HS512 alogrithm as in the JWT spec:
 
