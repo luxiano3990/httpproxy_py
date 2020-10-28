@@ -13,7 +13,7 @@ secret=('A9ddbcaba8c0ac1a0a812dc0c2f08514b23f2db0a68343cb8199ebb38a6d91e4ebfb378
 #payload = {"user": "username", "date": Iat , "iat" : Iat, "jti" : Jti}
 
 # define client payload
-payload = {"user": "username" }
+payload = {"user": "username" , "date" : dat}
 
 # encode JWT token with payload
 token = jwt.encode(payload, secret,algorithm='HS512')
